@@ -153,5 +153,9 @@ class DragDropListFragment{
     }
 
     
+    private 
+    private attachToRootElement(){
+        this.rootElement.insertAdjacentElement("beforeend",this.rootElement);
+    }
 }
 const pdg = new DragDropInputFragment()
