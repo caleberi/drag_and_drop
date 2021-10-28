@@ -1,0 +1,26 @@
+{
+  "name": "drag_and_drop",
+  "version": "1.0.0",
+  "description": "A basic project that support drag and drop functionality and it is implemented in typescript",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc --watch",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caleberi/drag_and_drop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caleberi/drag_and_drop/issues"
+  },
+  "homepage": "https://github.com/caleberi/drag_and_drop#readme",
+  "dependencies": {
+    "@types/node": "^16.11.6",
+    "lite-server": "^2.6.1",
+    "save-dev": "0.0.1-security"
+  }
+}
