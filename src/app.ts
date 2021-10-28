@@ -148,7 +148,7 @@ class DragDropListFragment{
         this.templateElement = document.getElementById("project-list") as HTMLTemplateElement ;
         this.rootElement =  document.getElementById("app") as HTMLDivElement;
         const importedNode:DocumentFragment =  document.importNode(this.templateElement.content,true);
-        this.sectionElement =  importedNode.firstChild as HTMLElement;
+        this.sectionElement =  importedNode.firstElementChild as HTMLElement;
         this.sectionElement.id = `${this.type}-projects`;
         this.attachToRootElement();
         this.renderContent();
