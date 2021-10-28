@@ -163,8 +163,7 @@ class DragDropInputFragment{
         const userInput = this.retrieveAllFormInformation();
         if(Array.isArray(userInput)){
             const [title,description,people] = userInput;
-            console.log([title,description,people]);
-            
+            state.addProject(title,description,people);
             this.clearInput();
         }
     }
