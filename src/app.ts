@@ -49,6 +49,7 @@ function Validate(input:Validateable){
 }
 
 class DragDropProjectState{
+    private listeners:any[] =[];
     private projects:any[] = [];
     private static instance:DragDropProjectState|null=null;
     private constructor(){
@@ -62,6 +63,10 @@ class DragDropProjectState{
         this.instance = new DragDropProjectState();
         return this.instance;
     }
+
+    addListener(listener:Function){
+        this.listeners.push(listener);
+    }
     addProject(title:string,description:string,people:number){
         const newProject = {
             id:Math.random().toString(),
@@ -71,6 +76,10 @@ class DragDropProjectState{
         };
 
         this.projects.push(newProject);
+        for(let listenFn of this.listeners) {
+            listenFn(this.projects.slice());
+        }
+        
     }
 }
 
