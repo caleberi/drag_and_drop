@@ -150,12 +150,20 @@ class DragDropListFragment{
         const importedNode:DocumentFragment =  document.importNode(this.templateElement.content,true);
         this.sectionElement =  importedNode.firstChild as HTMLElement;
         this.sectionElement.id = `${this.type}-projects`;
+        this.attachToRootElement();
+        this.renderContent();
     }
 
     
-    private 
+    private renderContent(){
+        const listID = `${this.type}-projects-list`;
+        this.sectionElement.querySelector("ul")!.id=listID;
+        this.sectionElement.querySelector("h2")!.textContent = this.type.toUpperCase() + ' PROJECTS';
+    }
     private attachToRootElement(){
         this.rootElement.insertAdjacentElement("beforeend",this.rootElement);
     }
 }
-const pdg = new DragDropInputFragment()
+const pdg = new DragDropInputFragment();
+const activeProject =  new DragDropListFragment("active");
+const finishedProject = new DragDropListFragment("finished");
