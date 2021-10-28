@@ -48,6 +48,22 @@ function Validate(input:Validateable){
     return isValid;
 }
 
+enum DragDropProjectStatus{Active,Finished};
+
+class DragDropProject{
+    constructor(
+        public id:string,
+        public title:string,
+        public desrciption:string,
+        public people:number,
+        public status:DragDropProjectStatus
+    ) {
+        
+    }
+}
+
+type Listener = (items:DragDropProject[]) => void;
+
 class DragDropProjectState{
     private listeners:any[] =[];
     private projects:any[] = [];
