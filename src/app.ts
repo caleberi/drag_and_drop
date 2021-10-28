@@ -49,7 +49,7 @@ function Validate(input:Validateable){
     return isValid;
 }
 
-class DragDropFragment{
+class DragDropInputFragment{
     templateElement:HTMLTemplateElement;
     rootElement:HTMLDivElement;
     formElement:HTMLElement;
@@ -138,4 +138,20 @@ class DragDropFragment{
     }
 }
 
-const pdg = new DragDropFragment()
+
+class DragDropListFragment{
+    templateElement:HTMLTemplateElement;
+    rootElement:HTMLDivElement;
+    sectionElement:HTMLElement;
+
+    constructor(private readonly type:'active'|'finished'){
+        this.templateElement = document.getElementById("project-list") as HTMLTemplateElement ;
+        this.rootElement =  document.getElementById("app") as HTMLDivElement;
+        const importedNode:DocumentFragment =  document.importNode(this.templateElement.content,true);
+        this.sectionElement =  importedNode.firstChild as HTMLElement;
+        this.sectionElement.id = `${this.type}-projects`;
+    }
+
+    
+}
+const pdg = new DragDropInputFragment()
