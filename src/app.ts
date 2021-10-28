@@ -179,6 +179,7 @@ class DragDropListFragment{
     templateElement:HTMLTemplateElement;
     rootElement:HTMLDivElement;
     sectionElement:HTMLElement;
+    assignedProjects:any[];
 
     constructor(private readonly type:'active'|'finished'){
         this.templateElement = document.getElementById("project-list") as HTMLTemplateElement ;
@@ -186,8 +187,25 @@ class DragDropListFragment{
         const importedNode:DocumentFragment =  document.importNode(this.templateElement.content,true);
         this.sectionElement =  importedNode.firstElementChild as HTMLElement;
         this.sectionElement.id = `${this.type}-projects`;
+        this.assignedProjects = [];
+        state.addListener((projects:any[])=>{
+            this.assignedProjects = projects;
+            this.renderList();
+        });
         this.attachToRootElement();
         this.renderContent();
+    }
+
+
+    private renderList(){
+        const listID = `${this.type}-projects-list`;
+        const listElement =  document.getElementById(listID)!;
+        for (const item of this.assignedProjects){
+            const listItem = document.createElement("li");
+            listItem.textContent = item.title;
+            listElement.appendChild(listItem);
+        }
+
     }
 
     private renderContent(){
