@@ -1,4 +1,3 @@
- 
 
 type FormInputData = [string,string,number];
 
