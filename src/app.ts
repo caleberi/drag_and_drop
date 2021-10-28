@@ -161,7 +161,7 @@ class DragDropListFragment{
         this.sectionElement.querySelector("h2")!.textContent = this.type.toUpperCase() + ' PROJECTS';
     }
     private attachToRootElement(){
-        this.rootElement.insertAdjacentElement("beforeend",this.rootElement);
+        this.rootElement.insertAdjacentElement("beforeend",this.sectionElement);
     }
 }
 const pdg = new DragDropInputFragment();
