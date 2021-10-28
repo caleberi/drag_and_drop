@@ -51,6 +51,18 @@ function Validate(input:Validateable){
 
 class DragDropProjectState{
     private projects:any[] = [];
+    private static instance:DragDropProjectState|null=null;
+    private constructor(){
+
+    }
+
+    static getInstance(){
+        if(this.instance){
+            return this.instance;
+        }
+        this.instance = new DragDropProjectState();
+        return this.instance;
+    }
     addProject(title:string,description:string,people:number){
         const newProject = {
             id:Math.random().toString(),
@@ -63,6 +75,7 @@ class DragDropProjectState{
     }
 }
 
+const state = DragDropProjectState.getInstance();
 
 class DragDropInputFragment{
     templateElement:HTMLTemplateElement;
