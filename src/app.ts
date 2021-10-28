@@ -154,7 +154,6 @@ class DragDropListFragment{
         this.renderContent();
     }
 
-    
     private renderContent(){
         const listID = `${this.type}-projects-list`;
         this.sectionElement.querySelector("ul")!.id=listID;
