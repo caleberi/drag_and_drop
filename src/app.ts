@@ -49,6 +49,21 @@ function Validate(input:Validateable){
     return isValid;
 }
 
+class DragDropProjectState{
+    private projects:any[] = [];
+    addProject(title:string,description:string,people:number){
+        const newProject = {
+            id:Math.random().toString(),
+            title : title,
+            description:description,
+            people:people
+        };
+
+        this.projects.push(newProject);
+    }
+}
+
+
 class DragDropInputFragment{
     templateElement:HTMLTemplateElement;
     rootElement:HTMLDivElement;
