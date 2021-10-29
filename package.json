@@ -21,6 +21,7 @@
   "dependencies": {
     "@types/node": "^16.11.6",
     "lite-server": "^2.6.1",
-    "save-dev": "0.0.1-security"
+    "save-dev": "0.0.1-security",
+    "tsc":"4.4.4"
   }
 }
